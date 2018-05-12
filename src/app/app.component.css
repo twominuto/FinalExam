@@ -26,3 +26,12 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+  .dashboardc {
+    color: white;
+    text-decoration: none;
+    height: 35px;
+  }
+  .loginc {
+    color: white;
+    float: right;
+  }

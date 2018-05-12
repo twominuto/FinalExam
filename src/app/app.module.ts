@@ -2,7 +2,11 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
-import { MaterialModule } from './material.module';
+
+
+import { MatButtonModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -20,10 +24,13 @@ import { MessagesComponent }    from './messages/messages.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
-    MaterialModule,
+    MatToolbarModule, 
+    MatButtonModule,
+    
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -37,13 +44,16 @@ import { environment } from '../environments/environment';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
+
+  exports: [ MatToolbarModule, MatButtonModule ],
   declarations: [
     AppComponent,
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    LoginComponent
   ],
   providers: [ HeroService, MessageService ],
   bootstrap: [ AppComponent ]
